@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>PetShop DinossauroLaser!</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/d20.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+
+<div th:replace="fragments/commons :: nav"></div>
+<div th:replace="fragments/commons :: header1"></div>
+<div th:replace="fragments/commons :: header"></div>
+
+<h1 style="text-align: center;">Cadastro Petdorias</h1>
+<div style="text-align: center;">
+    <form method="post" th:object="${pet}" th:action="@{/salvar} "enctype="multipart/form-data" >
+        Nome: <input type="text" name="nome" th:field="*{nome}">
+        <br/>
+        Animal   : <input type="text" name="animal" th:field="*{animal}">
+        <br/>
+        Descricao: <input type="text" name="descricao" th:field="*{descricao}">
+        <br/>
+        Preco    : <input type="text" name="preco" th:field="*{preco}">
+        <br/>
+        Anexo    : <input type="file" name="file"/>
+        <br />
+
+        <button class="btn btn-outline-dark" type="submit">Adicionar </button>
+        <br/>
+    </form>
+
+</div>
+
+
+<div th:replace="fragments/commons :: footer"></div>
+</body>
+</html>
